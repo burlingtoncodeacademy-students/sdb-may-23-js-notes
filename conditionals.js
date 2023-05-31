@@ -274,3 +274,28 @@ switch (true) {
 	default:
 		console.log(`${grade} is not a grade`);
 }
+
+// Hello Frenemy Solution
+function respond(name) {
+	// Going further sanitize input
+	name = name.toLowerCase();
+	// Going futher sanitize output
+	let result = name.split(" ");
+	console.log(result);
+	result = `${result[0][0].toUpperCase()}${result[0].slice(
+		1
+	)} ${result[1][0].toUpperCase()}${result[1].slice(1)}`;
+	// if (name == "darth vader" || name == "lex luthor") {
+	// 	console.log(`Noooo, ${result}, go away!`);
+	// } else {
+	// 	console.log(`Hello, ${result}`);
+	// }
+
+	name == "darth vader" || name == "lex luthor"
+		? console.log(`Noooo, ${result}, go away!`)
+		: console.log(`Hello, ${result}`);
+}
+
+respond("Darth Vader");
+respond("lex luthor");
+respond("lUKE sKYWALKER");
