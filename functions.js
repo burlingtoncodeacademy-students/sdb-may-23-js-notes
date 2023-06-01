@@ -96,3 +96,140 @@ console.log(nameAge("Melissa", 28));
     
     -b+-sqrt(b**2 -4ac)/2a
 */
+
+function quadraticFormula(a, b, c) {
+	let sqrtResult = Math.sqrt(b ** 2 - 4 * a * c);
+	if (isNaN(sqrtResult)) {
+		return "Please make sure you use whole numbers which result in a positive discriminant";
+	} else {
+		let addResult = ((-b + sqrtResult) / 2) * a;
+		let subResult = ((-b - sqrtResult) / 2) * a;
+		return `The solution is ${addResult} and ${subResult}`;
+	}
+}
+
+let qResult = quadraticFormula(1, -11, 24);
+console.log(qResult, typeof qResult);
+
+/* 
+    ? Pythagoream Theorem Challenge
+    * right triangle has three sides
+    * the longest side c is calculated by taking the sum of:
+    * a**2 and b**2
+    * the formula is as follows c = sqrt(a**2 + b**2)
+    * Create a function expression that takes two triangles sides
+    * return the hypotenuse (c side)
+    * hint: Math object has a .sqrt() method
+    ! 37 ish
+
+*/
+
+let pythagoreamTheorem = function (a, b) {
+	// let sideSquared = a ** 2 + b ** 2;
+	// let hypotenuse = Math.sqrt(sideSquared);
+	// return `The hypotenuse is ${hypotenuse}`;
+	return Math.sqrt(a ** 2 + b ** 2);
+};
+
+console.log(pythagoreamTheorem(5, 7));
+
+/* 
+    ? Arrow Functions
+    * introduced in ES6
+    * concise way of writing functions
+    * part of fx expression family
+    * do not bind to .this or super (more on that in Classes)
+*/
+
+/* 
+    ? Concise Body Arrow Function
+    * can have none or one paramter only
+    * code block must not have { }
+    * return statement must be implicit
+*/
+
+let greetEveryone = () => `Hello everyone`;
+
+let greetDoctor = drName => `Hello, Dr. ${drName}`
+console.log(greetDoctor("Enoch"))
+
+console.log(greetDoctor("Dante"))
+
+// ? Block Body Arrow Function
+
+let concatenateString = (str1, str2) => {
+    if (typeof str1 == "string" && typeof str2 == "string") {
+        return str1 + str2
+    } else {
+        return `You can only pass string values as arguments`
+    }
+}
+
+console.log(concatenateString(227, "Niemczyk"))
+console.log(concatenateString());
+
+// ? Immediately Invoked Function Expression (IIFE)
+
+(function() {
+    console.log("I'm an IIFE")
+})()
+
+// FizzBuzz Challenge!
+/*
+  Create a function that takes a parameters called start and stop.
+  Loop over numbers from start to stop
+  If the number is divisible by 3, print "Fizz"
+  If the number is divisible by 5, print "Buzz"
+  If the number is divisible by 3 and 5, print "Fizz Buzz"
+  If the number is not divisible, print the number only
+  Invoke your function to make sure it works.
+*/
+
+let fizzBuzz = (start, stop) => {
+    for (let i = start; i <= stop; i++) {
+        i % 15 === 0
+            ? console.log("Fizz Buzz")
+            : i % 3 === 0 ? console.log("Fizz")
+            : i % 5 === 0 ? console.log("Buzz")
+            : console.log(i)
+    }
+}
+
+fizzBuzz(47, 85)
+
+// Reverse Words in a String
+
+/* 
+    Write a function that takes a string as input and returns the same string with the order of words reversed.
+
+    For example, if the input string is "Hello World!", the function should return "!World Hello".
+
+    Your task is to implement the reverseWords function and test it with different inputs.
+*/
+
+let reverse = str => {
+    let reversed = ""
+    for (i = str.length - 1; i >= 0; i--) {
+        reversed += str[i]
+    }
+    return reversed
+}
+
+console.log(reverse("Niemczyk"))
+
+let pythagoreamTheoremAll = function (a, b, c) {
+	let result
+    switch(true) {
+        case !a:
+            result = Math.sqrt(c**2 - b**2)
+            break
+        case !b:
+            result = Math.sqrt(c**2 - a**2)
+            break
+        case !c:
+            result = Math.sqrt(a**2 + b**2)
+    }
+    return result
+};
+
+console.log(pythagoreamTheoremAll(false, 2, 8))
